@@ -1,0 +1,20 @@
+{{page-title "Products"}}
+<LinkTo class="ui green button" @route="products.add">
+  Ajouter un produit
+</LinkTo>
+{{outlet}}
+<ol>
+{{#each @model as |product|}}
+  <li>
+    <LinkTo @route="products.update" @model={{product.id}} class="ui mini icon button">
+      <i class="ui edit icon"></i>
+    </LinkTo>
+    {{product.name}} - <span class="ui mini tag label">{{product.section.name}}</span>
+  <ul>
+    {{#each product.packs as |pack|}}
+      <li>{{pack.name}}</li>
+    {{/each}}
+  </ul>
+  </li>
+{{/each}}
+</ol>

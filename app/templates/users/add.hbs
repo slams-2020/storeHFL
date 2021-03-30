@@ -1,0 +1,9 @@
+{{page-title "Add"}}
+<form class="ui form" {{action "save" @model on="submit"}}>
+  <Input class="ui input" required="required" @value={{@model.name}} placeholder="Votre nom"/>
+  <Input class="ui input" type="email" @value={{@model.email}} placeholder="Votre email"/>
+  <Input class="ui input" type="password" @value={{@model.password}} placeholder="Votre password"/>
+  <button class="ui positive button" type="submit">Valider</button>
+  <LinkTo class="ui button" @route="users">Annuler</LinkTo>
+</form>
+{{outlet}}
