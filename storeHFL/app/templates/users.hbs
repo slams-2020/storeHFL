@@ -1,0 +1,24 @@
+{{page-title "Users"}}
+<div class="ui label">{{@model.connected.email}}</div>
+<LinkTo class="ui button" @route="users.add">Ajouter utilisateur</LinkTo>
+{{#if @model.deleted}}
+<div class="ui success icon message">
+  <i class="ui circle remove icon"></i>
+  Utilisateur supprimé : {{@model.deleted.name}}
+</div>
+{{/if}}
+<ul>
+  {{#each @model.users as |user|}}
+    <li>{{user.name}} {{user.email}}
+      <span class="ui red mini icon button" {{action "remove" user @model}}>
+        <i class="ui remove icon"></i>
+      </span>
+    <ul>
+      {{#each user.orders as |order|}}
+        <li>{{order.dateCreation}} {{order.status}}</li>
+      {{/each}}
+    </ul>
+    </li>
+  {{/each}}
+</ul>
+{{outlet}}
