@@ -1,2 +1,25 @@
 {{page-title "Section"}}
+<h1>Section</h1>
+<table class="ui celled table" width="80%">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each @model.section as |section|}}
+    <tr>
+        <td>{{section.name}}</td>
+        <td> {{section.description}}</td>
+      <td><i class="edit icon"></i></td>
+      <td><i class="window close icon red"></i></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+<LinkTo class="ui button" @route="section.add">Ajouter section</LinkTo>
+<br />
 {{outlet}}
