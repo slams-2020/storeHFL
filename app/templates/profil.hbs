@@ -1,0 +1,41 @@
+{{page-title "Profil"}}
+<div style="display: flex;justify-content: center">
+  <div>
+  <div class="profilname">
+    <h2><i class="address card icon"></i> Votre profil :</h2>
+  </div>
+    <br>
+<div class="ui link cards profilname">
+  <div class="card">
+    <div class="content">
+      <div class="header">{{this.userAuth.user.name}}</div>
+      <div class="meta">
+        <a>Statut : Salarié <!-- A changer prochainement(faire lien avec la bdd --></a>
+      </div>
+      <div class="email">
+        <i aria-hidden="true" class="mail icon"></i>
+        &nbsp;{{this.userAuth.user.email}}
+      </div>
+      <div class="password">
+        <i aria-hidden="true" class="ban icon"></i>
+        &nbsp;{{this.userAuth.user.password}}
+      </div>
+    </div>
+    <!-- Continuez quand il y aura + d'information-->
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2021
+      </span>
+      <span>
+        <i class="user icon"></i>
+        75 Friends
+      </span>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+{{outlet}}

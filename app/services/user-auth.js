@@ -30,6 +30,6 @@ export default class UserAuthService extends Service {
   //A appeler pour connexion de l'employé, après validation positive du formulaire de connexion
   login(user) {
     this.user = user;
-    this.storage.user = JSON.stringify({ id: user.id, name: user.name, email: user.email });
+    this.storage.user = JSON.stringify({ id: user.id, name: user.name, email: user.email, password: user.password });
   }
 }
