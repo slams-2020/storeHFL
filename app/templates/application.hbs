@@ -17,12 +17,12 @@
     Panier
   </a>
   <div class="right menu">
-    <div class="ui input"><input type="text" placeholder="Rechercher..."/></div>
+    <div class="ui icon input"><input type="text" placeholder="Rechercher..."/><i aria-hidden="true" class="search icon"></i></div>
     <div class="item">
 
       <div class="ui primary button">{{this.userAuth.user.name}}</div>
       &nbsp;
-      <button class="ui black button" {{action "logout"}}>
+      <button class="ui button" {{action "logout"}}>
         Logout
       </button>
     </div>
