@@ -1,9 +1,11 @@
 {{page-title "Store"}}
+
 <header>
-<center>
-  <img src="/img/store_hfl.jpg" height="15%" width="15%">
-</center>
+  <center>
+    <img src="/img/store_hfl.jpg" height="15%" width="15%">
+  </center>
 </header>
+
 <div class="ui mini menu">
   <a class="active item">
     Accueil
@@ -17,8 +19,14 @@
   <div class="right menu">
     <div class="ui input"><input type="text" placeholder="Rechercher..."/></div>
     <div class="item">
-      <div class="ui primary button">Profil</div>
+
+      <div class="ui primary button">{{this.userAuth.user.name}}</div>
+      &nbsp;
+      <button class="ui black button" {{action "logout"}}>
+        Logout
+      </button>
     </div>
+
   </div>
 </div>
 <div>
@@ -32,4 +40,3 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 
 {{!-- Feel free to remove this! --}}
-
