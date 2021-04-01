@@ -7,7 +7,21 @@
     </a>
   </center>
 </header>
-
+<ol>
+  {{#each @model as |product|}}
+    <li>
+      <LinkTo @route="products.update" @model={{product.id}} class="ui mini icon button">
+        <i class="ui edit icon"></i>
+      </LinkTo>
+      {{product.name}} - <span class="ui mini tag label">{{product.section.name}}</span>
+      <ul>
+        {{#each product.packs as |pack|}}
+          <li>{{pack.name}}</li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ol>
 <div class="ui mini menu">
   <a class="active item" href="http://127.0.0.1:4200/accueil">
     Accueil
@@ -27,6 +41,7 @@
       <button class="ui button" {{action "logout"}}>
         Logout
       </button>
+
     </div>
 
   </div>
