@@ -1,27 +1,32 @@
 {{page-title "Catalogue"}}
 <!-- <a class="active item" -->
+<div class="profilname">
+  <h2><i class="car icon"></i> Catalogue 2021 :</h2>
+</div>
+<br>
 
-<div class="ui card">
+<div class="ui six cards">
+{{#each @model as |product|}}
+<div class="card">
   <div class="image">
-    <img src="/img/S24_1046.jpg">
+    <img src="/img/{{product.image}}.jpg">
   </div>
   <div class="content">
-    <a class="header">Kristy</a>
+    <a class="header">{{product.name}}</a>
     <div class="meta">
       <span class="date">Joined in 2013</span>
     </div>
     <div class="description">
-      Kristy is an art director living in New York.
+      {{product.comments}}
     </div>
   </div>
-  <div class="extra content">
-    <a>
-      <i class="user icon"></i>
-      22 Friends
-    </a>
-  </div>
+    <div class="content">
+      <p>Prix : </p>
+      <div class="ui primary button right floated">Ajouter au panier</div>
+    </div>
 </div>
-
+{{/each}}
+</div>
 <!--<img src="/img/S10_1678.jpg"/>-->
 
 <!--
