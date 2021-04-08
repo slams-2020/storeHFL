@@ -5,11 +5,26 @@
 {{outlet}}
 <ol>
 {{#each @model as |product|}}
+  {{#if @model.deleted}}
+    <div class="ui success icon message">
+      <i class="ui circle remove icon"></i>
+      {{@model.deleted.name}}
+    </div>
+  {{/if}}
+
   <li>
     <LinkTo @route="products.update" @model={{product.id}} class="ui mini icon button">
       <i class="ui edit icon"></i>
     </LinkTo>
     {{product.name}} - <span class="ui mini tag label">{{product.section.name}}</span>
+    <span class="ui red mini icon button" {{action "remove" product @model}}>
+    <i class="ui remove icon"></i></span>
+    {{#if product.isDeleted}}
+      <div class="ui message">Voulez-vous supprimer {{product.name}} ?
+        <span class="ui green button" {{action "delete" product}}>Validez ?</span>
+        <span class="ui red button" {{action "cancelremove" product}}>Annulez ?</span>
+      </div>
+    {{/if}}
   <ul>
     {{#each product.packs as |pack|}}
       <li>{{pack.name}}</li>
