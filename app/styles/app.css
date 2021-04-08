@@ -12,3 +12,23 @@
   text-align: center;
 }
 
+.box {
+  background-color:  rgb(33, 150, 243);
+  border-style: outset;
+}
+
+.text-color{
+  color :white;
+  text-align: center;
+  margin:250px;
+  padding:10px;
+
+}
+/* Attribue cela au bouton */
+.ui facebook button{
+  border-style: outset;
+}
+
+.text-deco{
+  padding : 20px;
+}
