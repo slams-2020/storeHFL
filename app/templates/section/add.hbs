@@ -1,16 +1,7 @@
 {{page-title "Add"}}
-<br />
-<div class="ui form">
-  <div class="inline fields">
-    <div class="three wide field">
-      <label>Name</label>
-      <input type="text" placeholder="Name">
-    </div>
-    <div class="ten wide field">
-      <label>Description</label>
-      <input type="text" placeholder="Description">
-    </div>
-  </div>
-  <LinkTo class="ui button green" @route="section.add">Valider</LinkTo>
-</div>
+<form class="ui form" {{action "save" @model.section on="submit"}}>
+  <Input @value={{@model.section.name}} placeholder="Nom de la section"/>
+  <Input @value={{@model.section.description}} placeholder="Description de la section"/>
+  <button type="submit" class="ui positive button">Valider</button>
+</form>
 {{outlet}}

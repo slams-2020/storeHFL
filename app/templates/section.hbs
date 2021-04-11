@@ -1,5 +1,5 @@
 {{page-title "Section"}}
-<h1>Section</h1>
+<h1>Section</h1><LinkTo class="ui button" @route="section.add">Ajouter section</LinkTo>
 <table class="ui celled table" width="80%">
   <thead>
   <tr>
@@ -14,12 +14,14 @@
     <tr>
         <td>{{section.name}}</td>
         <td> {{section.description}}</td>
-      <td><i class="edit icon"></i></td>
+      <td><LinkTo @route="section.update"  class="ui mini icon button">
+        <i class="ui edit icon"></i>
+      </LinkTo></td>
       <td><i class="window close icon red"></i></td>
     </tr>
   {{/each}}
   </tbody>
 </table>
-<LinkTo class="ui button" @route="section.add">Ajouter section</LinkTo>
+
 <br />
 {{outlet}}

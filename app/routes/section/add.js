@@ -6,12 +6,13 @@ export default class SectionAddRoute extends Route {
   model() {
     return RSVP.hash({
       sections: this.store.findAll('section'),
+      section: {},
     });
   }
-  @action save(p) {
-    let product = this.store.createRecord('product', p);
-    product.save().then(() => {
-      this.transitionTo('products');
+  @action save(s) {
+    let section = this.store.createRecord('section', s);
+    section.save().then(() => {
+      this.transitionTo('section');
     });
   }
 }
