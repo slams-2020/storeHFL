@@ -1,6 +1,6 @@
 {{page-title "Section"}}
 <h1>Section</h1><LinkTo class="right ui button" @route="section.add">Ajouter section</LinkTo>
-<table class="ui celled table" width="80%">
+<table class="ui celled table" width="50%">
   <thead>
   <tr>
     <th>Name</th>
@@ -17,48 +17,34 @@
         {{@model.deleted.name}}
       </div>
     {{/if}}
+    {{#if @model.remove}}
+      <div class="ui success icon message">
+        <i class="ui circle remove icon"></i>
+        {{@model.remove.name}}
+        {{@model.remove.description}}
+      </div>
+    {{/if}}
     <tr>
       <td>{{section.name}}</td>
       <td> {{section.description}}</td>
       <td>
         <LinkTo @route="section.update"  class="ui mini icon button">
-          <i class="ui edit icon"></i>
+          <i class="ui edit icon"{{action "delete" section @model}}>
+          </i>
         </LinkTo></td>
       <td>
-        <i class="ui circle red remove icon button" >
+        <i class="ui red mini icon button" {{action "remove" section @model}}>
           {{#if section.isDeleted}}
           <div class="ui message">Voulez-vous supprimer {{section.name}} ?
             <span class="ui green button" {{action "delete" section}}>Validez ?</span>
             <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
           </div>
-        {{/if}}</i>
-
+        {{/if}}
+        </i>
       </td>
     </tr>
   {{/each}}
   </tbody>
 </table>
-{{#each @model.section as |section|}}
-  {{#if @model.deleted}}
-    <div class="ui success icon message">
-      <i class="ui circle remove icon"></i>
-      {{@model.deleted.name}}
-    </div>
-  {{/if}}
-<li>
-  <LinkTo @route="section.update" class="ui edit icon">
-    <i class="ui edit icon"></i>
-  </LinkTo>
-  {{section.name}} - <span class="ui mini tag label">{{section.section.name}}</span>
-  <span class="ui red mini icon button" {{action "remove" section @model}}>
-    <i class="ui remove icon"></i></span>
-  {{#if section.isDeleted}}
-    <div class="ui message">Voulez-vous supprimer {{section.name}} ?
-      <span class="ui green button" {{action "delete" section}}>Validez ?</span>
-      <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
-    </div>
-  {{/if}}
-</li>
-{{/each}}
 <br />
 {{outlet}}
