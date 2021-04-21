@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { action } from '@ember/object';
-import RSVP from "rsvp";
+import RSVP from 'rsvp';
 
 export default class SectionRoute extends Route {
   model() {

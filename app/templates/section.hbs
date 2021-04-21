@@ -1,5 +1,5 @@
 {{page-title "Section"}}
-<h1>Section</h1><LinkTo class="ui button" @route="section.add">Ajouter section</LinkTo>
+<h1>Section</h1><LinkTo class="right ui button" @route="section.add">Ajouter section</LinkTo>
 <table class="ui celled table" width="80%">
   <thead>
   <tr>
@@ -11,17 +11,54 @@
   </thead>
   <tbody>
   {{#each @model.section as |section|}}
+    {{#if @model.deleted}}
+      <div class="ui success icon message">
+        <i class="ui circle remove icon"></i>
+        {{@model.deleted.name}}
+      </div>
+    {{/if}}
     <tr>
-        <td>{{section.name}}</td>
-        <td> {{section.description}}</td>
-      <td><LinkTo @route="section.update"  class="ui mini icon button">
-        <i class="ui edit icon"></i>
-      </LinkTo></td>
-      <td><i class="window close icon red"></i></td>
+      <td>{{section.name}}</td>
+      <td> {{section.description}}</td>
+      <td>
+        <LinkTo @route="section.update"  class="ui mini icon button">
+          <i class="ui edit icon"></i>
+        </LinkTo></td>
+      <td>
+        <i class="ui circle red remove icon button" >
+          {{#if section.isDeleted}}
+          <div class="ui message">Voulez-vous supprimer {{section.name}} ?
+            <span class="ui green button" {{action "delete" section}}>Validez ?</span>
+            <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
+          </div>
+        {{/if}}</i>
+
+      </td>
     </tr>
   {{/each}}
   </tbody>
 </table>
-
+{{#each @model.section as |section|}}
+  {{#if @model.deleted}}
+    <div class="ui success icon message">
+      <i class="ui circle remove icon"></i>
+      {{@model.deleted.name}}
+    </div>
+  {{/if}}
+<li>
+  <LinkTo @route="section.update" class="ui edit icon">
+    <i class="ui edit icon"></i>
+  </LinkTo>
+  {{section.name}} - <span class="ui mini tag label">{{section.section.name}}</span>
+  <span class="ui red mini icon button" {{action "remove" section @model}}>
+    <i class="ui remove icon"></i></span>
+  {{#if section.isDeleted}}
+    <div class="ui message">Voulez-vous supprimer {{section.name}} ?
+      <span class="ui green button" {{action "delete" section}}>Validez ?</span>
+      <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
+    </div>
+  {{/if}}
+</li>
+{{/each}}
 <br />
 {{outlet}}
