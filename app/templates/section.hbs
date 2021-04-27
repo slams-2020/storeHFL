@@ -29,8 +29,8 @@
       <td> {{section.description}}</td>
       <td>
         <LinkTo @route="section.update"  class="ui mini icon button">
-          <i class="ui edit icon"{{action "delete" section @model}}>
-          </i>
+          <div class="ui edit icon" {{action "remove" section @model}}>
+          </div>
         </LinkTo></td>
       <td>
         <i class="ui red mini icon button" {{action "remove" section @model}}>
