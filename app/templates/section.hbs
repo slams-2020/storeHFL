@@ -1,6 +1,6 @@
 {{page-title "Section"}}
 <h1>Section</h1><LinkTo class="right ui button" @route="section.add">Ajouter section</LinkTo>
-<table class="ui celled table" width="50%">
+<table class="ui small celled table">
   <thead>
   <tr>
     <th>Name</th>
@@ -28,17 +28,16 @@
       <td>{{section.name}}</td>
       <td> {{section.description}}</td>
       <td>
-        <LinkTo @route="section.update"  class="ui mini icon button">
-          <div class="ui edit icon" {{action "remove" section @model}}>
-          </div>
+        <LinkTo @route="section.update" @model={{section.id}} class="ui mini icon button">
+          <i class="ui edit icon"></i>
         </LinkTo></td>
       <td>
-        <i class="ui red mini icon button" {{action "remove" section @model}}>
+        <i class="ui red icon button" {{action "remove" section @model}}>
           {{#if section.isDeleted}}
-          <div class="ui message">Voulez-vous supprimer {{section.name}} ?
-            <span class="ui green button" {{action "delete" section}}>Validez ?</span>
-            <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
-          </div>
+            <div class="ui message">Voulez-vous supprimer {{section.name}} ?
+              <span class="ui green button" {{action "delete" section}}>Validez ?</span>
+              <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
+            </div>
         {{/if}}
         </i>
       </td>

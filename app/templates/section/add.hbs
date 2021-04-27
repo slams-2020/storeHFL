@@ -1,7 +1,14 @@
 {{page-title "Add"}}
 <form class="ui form" {{action "save" @model.section on="submit"}}>
-  <Input @value={{@model.section.name}} placeholder="Nom de la section"/>
-  <Input @value={{@model.section.description}} placeholder="Description de la section"/>
+  <Input @value={{@model.section.name}} placeholder="Nom de la section"/><br>
+  <Input @value={{@model.section.description}} placeholder="Description de la section"/><br>
   <button type="submit" class="ui positive button">Valider</button>
 </form>
+<br>
+<br>
+<br><br><br><br>
+
+
+
+
 {{outlet}}

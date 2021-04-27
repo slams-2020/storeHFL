@@ -3,9 +3,10 @@ import RSVP from 'rsvp';
 import { action } from '@ember/object';
 
 export default class SectionUpdateRoute extends Route {
-  model() {
+  model(params) {
     return RSVP.hash({
       sections: this.store.findAll('section'),
+      section: this.store.findRecord('section', params.section_id),
     });
   }
   @action save(section) {
