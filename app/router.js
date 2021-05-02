@@ -14,5 +14,13 @@ Router.map(function () {
     this.route('add');
     this.route('update',{path:'update/:product_id'});
   });
-  this.route('section');
+  this.route('section', function() {
+    this.route('add');
+    this.route('update',{path:'update/:section_id'});
+  });
+  this.route('accueil');
+  this.route('catalogue');
+  this.route('profil');
+  this.route('panier');
+
 });

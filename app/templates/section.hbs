@@ -31,44 +31,36 @@
         <LinkTo @route="section.update" @model={{section.id}} class="ui mini icon button">
           <i class="ui edit icon"></i>
         </LinkTo></td>
-      <td>
 
-        <i class="ui red icon button" {{action "remove" section @model}}>
-          <div class="ui basic modal">
-            <div class="ui icon header">
-              <i class="archive icon"></i>
-              Voulez-vous supprimer {{section.name}} ?
-            </div>
-            <div class="content">
-              <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-            </div>
-            <div class="actions">
-              <div class="ui red basic cancel inverted button">
-                <i class="remove icon"></i>
-                <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
-              </div>
-              <div class="ui green ok inverted button">
-                <i class="checkmark icon"></i>
-                <span class="ui green button" {{action "delete" section}}>Validez ?</span>
-              </div>
-            </div>
+      <td>
+        <button class="ui red icon button" {{action "remove" section @model}}>
+          {{#if section.isDeleted}}
+
+            <div class="ui message">Voulez-vous supprimer {{section.name}} ?
+            <span class="ui green button" {{action "delete" section}}>Validez</span>
+
+            <span class="ui red button" {{action "cancelremove" section}}>Annulez</span>
           </div>
-        </i>
+
+
+          {{/if}}
+
+        </button>
+
       </td>
 
     </tr>
+
   {{/each}}
   </tbody>
 </table>
 <br />
-<script>$('.ui.modal')
-  .modal('show')
-;</script>
 
-{{#if section.isDeleted}}
-  <div class="ui message">Voulez-vous supprimer {{section.name}} ?
-    <span class="ui green button" {{action "delete" section}}>Validez ?</span>
-    <span class="ui red button" {{action "cancelremove" section}}>Annulez ?</span>
-  </div>
-{{/if}}
+<script>
+  $('.ui.modal')
+  .modal('show')
+;
+</script>
+
+
 {{outlet}}
