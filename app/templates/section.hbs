@@ -30,37 +30,16 @@
       <td>
         <LinkTo @route="section.update" @model={{section.id}} class="ui mini icon button">
           <i class="ui edit icon"></i>
-        </LinkTo></td>
-
-      <td>
-        <button class="ui red icon button" {{action "remove" section @model}}>
-          {{#if section.isDeleted}}
-
-            <div class="ui message">Voulez-vous supprimer {{section.name}} ?
-            <span class="ui green button" {{action "delete" section}}>Validez</span>
-
-            <span class="ui red button" {{action "cancelremove" section}}>Annulez</span>
-          </div>
-
-
-          {{/if}}
-
-        </button>
-
+        </LinkTo>
       </td>
-
+      <td>
+      <LinkTo @route="section.delete" @model={{section.id}} class="ui mini icon button">
+        <i class="ui delete icon"></i>
+      </LinkTo>
+      </td>
     </tr>
-
   {{/each}}
   </tbody>
 </table>
 <br />
-
-<script>
-  $('.ui.modal')
-  .modal('show')
-;
-</script>
-
-
 {{outlet}}
