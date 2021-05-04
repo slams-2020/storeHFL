@@ -1,9 +1,44 @@
 {{page-title "Catalogue"}}
-<!-- <a class="active item" -->
+
 <div class="profilname">
   <h2><i class="car icon"></i> Catalogue 2021 :</h2>
 </div>
 <br>
+
+<div class="ui vertical menu">
+  <div class="ui dropdown item">
+    Categories
+    <i class="dropdown icon"></i>
+    <div class="menu">
+  <a class="active item">
+    Tout
+  </a>
+  <a class="item">
+    Classic Cars
+  </a>
+  <a class="item">
+    Motorcycles
+  </a>
+  <a class="item">
+    Planes
+  </a>
+  <a class="item">
+    Ships
+  </a>
+  <a class="item">
+    Trains
+  </a>
+  <a class="item">
+    Trucks and Buses
+  </a>
+  <a class="item">
+    Vintage Cars
+  </a>
+</div>
+</div>
+</div>
+
+
 {{#unless @model.hide}}
   <div class="ui success message">
     <i class="close icon"></i>
@@ -38,33 +73,11 @@
 
 {{/each}}
 </div>
-<!--<img src="/img/S10_1678.jpg"/>-->
-
-<!--
-<div class="ui three doubling stackable cards">
-  <div class="ui card">
-    <div class="image">
-      <img src="/img/S10_1678.jpg"/>
-        <div class="square image"></div>
-    </div>
-    <div class="content">
-      <div class="ui placeholder">
-        <div class="header">
-          <div class="very short line"></div>
-          <div class="medium line"></div>
-        </div>
-        <div class="paragraph">
-          <div class="short line"></div>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <p>Prix : </p>
-      <div class="ui primary button right floated">Ajouter au panier</div>
-    </div>
-  </div>
-</div>
-<br>
-<br>
--->
+<script>$('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;</script>
+<br><br><br><br><br><br>
 {{outlet}}
