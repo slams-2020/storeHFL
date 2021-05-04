@@ -7,6 +7,7 @@ export default class SectionDeleteRoute extends Route {
   }
   @action delete(s) {
     s.destroyRecord();
+    this.transitionTo('section');
   }
   @action cancelremove(s) {
     s.rollbackAttributes();
