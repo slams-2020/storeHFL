@@ -2,7 +2,7 @@
 <div class="ui basic modal">
   <div class="ui icon header">
     <i class="archive icon"></i>
-    Voulez-vous supprimer {{section.name}} ?
+    Voulez-vous supprimer {{@model.name}} ?
   </div>
   <div class="content">
     <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
@@ -10,16 +10,18 @@
   <div class="actions">
     <div class="ui red basic cancel inverted button">
       <i class="remove icon"></i>
-      <span class="ui red button" {{action "cancelRemove" section}}>Annulez ?</span>
+      <span class="ui red button" {{action "cancelremove" @model}}>Annulez ?</span>
     </div>
     <div class="ui green ok inverted button">
       <i class="checkmark icon"></i>
-      <span class="ui green button" {{action "Delete" section}}>Validez ?</span>
+      <span class="ui green button" {{action "delete" @model}}>Validez ?</span>
     </div>
   </div>
 </div>
 
-<script>$('.ui.modal')
+
+<script>
+  $('.ui.modal')
   .modal('show')
 ;</script>
 

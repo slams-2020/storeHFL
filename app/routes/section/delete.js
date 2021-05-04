@@ -1,17 +1,14 @@
 import Route from '@ember/routing/route';
-import RSVP from "rsvp";
 import { action } from '@ember/object';
 
 export default class SectionDeleteRoute extends Route {
-  model() {
-    return RSVP.hash({
-      section: this.store.findAll('section'),
-    });
+  model(params) {
+    return this.store.findRecord('section', params.section_id);
   }
-  @action Delete(d){
-    d.save();
+  @action delete(s) {
+    s.destroyRecord();
   }
-  @action cancelRemove(d){
-    d.rollbackAttributes();
+  @action cancelremove(s) {
+    s.rollbackAttributes();
   }
 }

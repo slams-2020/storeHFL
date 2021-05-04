@@ -12,10 +12,10 @@ export default class SectionRoute extends Route {
   @action remove(s) {
     s.deleteRecord();
   }
-  @action delete(s){
+  @action delete(s) {
     s.save();
   }
-  @action cancelremove(s){
+  @action cancelremove(s) {
     s.rollbackAttributes();
   }
 }
